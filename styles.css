@@ -49,6 +49,7 @@ body {
   align-items: center;
   display: flex;
   justify-content: center;
+  cursor: alias;
 }
 
 /* Styling for the tic-tac-toe boxes */
