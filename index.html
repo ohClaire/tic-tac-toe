@@ -11,25 +11,39 @@
 </head>
 
 <body>
-  <section>
-    <h3>Player 1</h3>
-    <p>0 wins</p>
-  </section>
+  <article class="player1 feedback">
+    <img class="player__token" src="./assets/icons8-bubble-tea-80.png" alt="Bubble tea token">
+    <p class="player1__score scoring">0 wins</p>
+  </article>
 
-  <article>
-    <header>
+  <article class="board">
+    <header class="board__title">
       <h1>It's player 1's turn!</h1>
     </header>
   
-    <main class="game">
-      Tic tac toe game(placeholder)
+    <main class="board__game">
+      <div>
+        <section class="board__game--boxes side-top side-left"> 1 </section>
+        <section class="board__game--boxes side-left"> 2 </section>
+        <section class="board__game--boxes side-bottom side-left"> 3 </section>
+      </div>
+      <div>
+        <section class="board__game--boxes side-top"> 4 </section>
+        <section class="board__game--boxes"> 5 </section>
+        <section class="board__game--boxes side-bottom"> 6 </section>
+      </div>
+      <div>
+        <section class="board__game--boxes side-top side-right"> 8 </section>
+        <section class="board__game--boxes side-right"> 9 </section>
+        <section class="board__game--boxes side-bottom side-right"> 7 </section>
+      </div>
     </main>
   </article>
 
-  <section>
-    <h3>Player 2</h3>
-    <p>0 wins</p>
-  </section>
+  <article class="player2 feedback">
+    <img class="player__token" src="./assets/icons8-coffee-to-go-80.png" alt="Coffee token">
+    <p class="player2__score scoring">0 wins</p>
+  </article>
 
  
   <script type="text/javascript" src="player.js"></script>
