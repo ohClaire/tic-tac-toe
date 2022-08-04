@@ -24,6 +24,7 @@ class Game {
 
   createBoard() {
     this.board = []; // reset board after a time with setTimeout()
+    
     for (let i = 0; i < 9; i++) {
       this.board.push('');
     }
@@ -44,6 +45,7 @@ class Game {
     } else {
       this.playerTurn = this.player1.token;
     } 
+
     return `It is ${this.playerTurn}'s turn!`
   } 
   
@@ -101,6 +103,7 @@ class Game {
 
   givePlayerWin(playerToken) {
     const player = this.getPlayer(playerToken);
+
     player.wins += 1; 
   }
 
@@ -111,7 +114,7 @@ class Game {
     if (!isThereWinner && !this.board.includes('')) { //if there is NOT a winner and there are no empty strings in the board
       return 'You\'re evenly matched!'
     } 
-    
+
     return `${this.winner} has won this game!`; 
   }
 
