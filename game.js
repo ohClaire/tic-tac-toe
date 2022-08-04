@@ -1,33 +1,41 @@
 class Game {
-  constructor(player1, player2) {
-    this.player1 = new Player(player1);
-    this.player2 = new Player(player2);
+  constructor(playerToken1, playerToken2) {
+    this.player1 = new Player(playerToken1);
+    this.player2 = new Player(playerToken2);
     this.board = [];
-    console.log(this.createBoard())
-    console.log(this.placeToken(player2, 0));
-    console.log(this.placeToken(player2, 1));
-    console.log(this.placeToken(player2, 2));
-    console.log(this.checkForWinner());
-    console.log(this.winner)
-    this.playerTurn = '';
+    this.playerTurn = this.player1;
     this.winner = '';
+    console.log(this.createBoard())
+    console.log(this.placeToken(playerToken1, 0), this.switchPlayer(playerToken2));
+    console.log(this.placeToken(playerToken2, 1));
+    console.log(this.placeToken(playerToken1, 2));
+    console.log(this.placeToken(playerToken1, 3));
+    console.log(this.placeToken(playerToken2, 4));
+    console.log(this.placeToken(playerToken2, 5));
+    console.log(this.placeToken(playerToken2, 6));
+    console.log(this.placeToken(playerToken1, 7));
+    console.log(this.placeToken(playerToken1, 8));
+    console.log(this.checkForWinner());
+    // console.log(this.checkForDraw());
+    // console.log(this.declareWinner(), this.winner)
+    console.log(this.declareMatch())
+    console.log(this.board)
   }
 
   createBoard() {
-    this.board = []; // this should reset my board
+    this.board = []; // reset board after a time with setTimeout()
     for (let i = 0; i < 9; i++) {
       this.board.push('');
     }
   }
 
-  placeToken(player, index) {
-    // console.log(player, index)
+  placeToken(playerToken, index) {
     if (this.board[index] === '') {
-      this.board[index] = player;
+      this.board[index] = playerToken;
     } else {
       return 'Choose a different spot!';
     }
-    return this.switchPlayer(player);
+    // return this.switchPlayer(player);
   }
 
   switchPlayer(player) {
@@ -40,50 +48,70 @@ class Game {
   } 
   
   checkForWinner() {
-    console.log(this.board[0], this.board[1], this.board[2])
-   
-    if (this.checkMatchingBoxes(0, 1, 2)) {
-      this.winner = this.board[0]
-    } else if (this.checkMatchingBoxes(3, 4, 5)) {
-      this.winner = this.board[3]
-    } else if (checkMatchingBoxes(6, 7, 8)) {
+    let isThereWinner = false; //after the whole board is checked, return if a winner is found
+    // console.log('check winner', this.board[0])
+    if (this.detectThreeMatches(0, 1, 2)) {
+      this.winner = this.board[0];
+      isThereWinner = true;
+    } else if (this.detectThreeMatches(3, 4, 5)) {
+      this.winner = this.board[3];
+      isThereWinner = true;
+    } else if (this.detectThreeMatches(6, 7, 8)) {
       this.winner = this.board[6];
-    } else if (checkMatchingBoxes(0, 3, 6)) {
+      isThereWinner = true;
+    } else if (this.detectThreeMatches(0, 3, 6)) {
       this.winner = this.board[0];
-    } else if (checkMatchingBoxes(1, 4, 7)) {
+      isThereWinner = true;
+    } else if (this.detectThreeMatches(1, 4, 7)) {
       this.winner = this.board[1];
-    } else if (checkMatchingBoxes(2, 5, 8)) {
+      isThereWinner = true;
+    } else if (this.detectThreeMatches(2, 5, 8)) {
       this.winner = this.board[2];
-    } else if (checkMatchingBoxes(0, 4, 8)) {
+      isThereWinner = true;
+    } else if (this.detectThreeMatches(0, 4, 8)) {
       this.winner = this.board[0];
-    } else if (checkMatchingBoxes(2, 4, 6)) {
-      this.winner = this.board[2]
+      isThereWinner = true;
+    } else if (this.detectThreeMatches(2, 4, 6)) {
+      this.winner = this.board[2];
+      isThereWinner = true;
     }
-    this.declareWinner(this.winner);
-    this.createBoard();
+    // this.declareWinner(this.winner);
+    // createBoard()
+    console.log(isThereWinner);
+    return isThereWinner;
   }
 
-  checkMatchingBoxes(boxIndex1, boxIndex2, boxIndex3) { 
-    if (
+  detectThreeMatches(boxIndex1, boxIndex2, boxIndex3) { 
+    if (this.board[boxIndex1] !== '' &&
       this.board[boxIndex1] === this.board[boxIndex2] && 
       this.board[boxIndex1] === this.board[boxIndex3]
     ) {
-      return true
+      // console.log('this is the winner!')
+      return true;
     }
   }
   
-  getPlayer(token) {
-    if (token === 'X') {
+  getPlayer(playerToken) {
+    if (playerToken === 'X') {
       return this.player1;
     } else {
       return this.player2;
     }
   }
 
-  declareWinner(token) {
-    const player = this.getPlayer(token)
-    player.wins += 1; // I need to link my player to their instance instead of the string!!!! 
-    console.log(player)
+  givePlayerWin(playerToken) {
+    const player = this.getPlayer(playerToken);
+    player.wins += 1; 
+  }
+
+
+  declareMatch() {
+    const isThereWinner = this.checkForWinner();
+
+    if (!isThereWinner && !this.board.includes('')) { //if there is NOT a winner and there are no empty strings in the board
+      return 'You\'re evenly matched!'
+    } 
+    
     return `${this.winner} has won this game!`; 
   }
 
