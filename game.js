@@ -5,46 +5,48 @@ class Game {
     this.board = [];
     this.playerTurn = this.player1;
     this.winner = '';
-    console.log(this.createBoard())
-    console.log(this.placeToken(playerToken1, 0), this.switchPlayer(playerToken2));
-    console.log(this.placeToken(playerToken2, 1));
-    console.log(this.placeToken(playerToken1, 2));
-    console.log(this.placeToken(playerToken1, 3));
-    console.log(this.placeToken(playerToken2, 4));
-    console.log(this.placeToken(playerToken2, 5));
-    console.log(this.placeToken(playerToken2, 6));
-    console.log(this.placeToken(playerToken1, 7));
-    console.log(this.placeToken(playerToken1, 8));
-    console.log(this.checkForWinner());
+    // console.log(this.createBoard())
+    // console.log(this.addToken(0), this.switchPlayer());
+    // console.log(this.addToken(1));
+    // console.log(this.addToken(2));
+    // console.log(this.addToken(3));
+    // console.log(this.addToken(4));
+    // console.log(this.addToken(5));
+    // console.log(this.addToken(6));
+    // console.log(this.addToken(7));
+    // console.log(this.addToken(8));
+    // console.log(this.checkForWinner());
     // console.log(this.checkForDraw());
     // console.log(this.declareWinner(), this.winner)
-    console.log(this.declareMatch())
-    console.log(this.board)
+    // console.log(this.declareMatch())
+    // console.log(this.board)
   }
 
   createBoard() {
     this.board = []; // reset board after a time with setTimeout()
+    
     for (let i = 0; i < 9; i++) {
       this.board.push('');
     }
   }
 
-  placeToken(playerToken, index) {
+  addToken(index) {
     if (this.board[index] === '') {
-      this.board[index] = playerToken;
+      this.board[index] = this.playerTurn.token;
     } else {
       return 'Choose a different spot!';
     }
     // return this.switchPlayer(player);
   }
 
-  switchPlayer(player) {
-    if (player === this.player1.token) {
+  switchPlayer() {
+    if (this.playerTurn === this.player1.token) {
       this.playerTurn = this.player2.token;
     } else {
       this.playerTurn = this.player1.token;
     } 
-    return `It is ${this.playerTurn}'s turn!`
+
+    // return `It is ${this.playerTurn}'s turn!`
   } 
   
   checkForWinner() {
@@ -101,6 +103,7 @@ class Game {
 
   givePlayerWin(playerToken) {
     const player = this.getPlayer(playerToken);
+
     player.wins += 1; 
   }
 
