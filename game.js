@@ -1,6 +1,6 @@
 class Game {
   constructor(playerToken1, playerToken2) {
-    this.board = [];
+    this.board = this.createBoard();
     this.player1 = new Player(playerToken1);
     this.player2 = new Player(playerToken2);
     this.playerTurn = this.player1.token;
@@ -8,11 +8,13 @@ class Game {
   }
 
   createBoard() {
-    this.board = []; // reset board after a time with setTimeout()
+    const board = []; // reset board after a time with setTimeout()
     
     for (let i = 0; i < 9; i++) {
-      this.board.push('');
+      board.push('');
     }
+
+    return board
   }
 
   addTokenToBoard(index) {
@@ -20,6 +22,9 @@ class Game {
       this.board[index] = this.playerTurn;
       
       this.switchPlayerTurn(); 
+
+      this.checkForWinner();
+
     } 
   }
 
@@ -33,6 +38,8 @@ class Game {
 
   updateWinner(index) {
     this.winner = this.board[index];
+
+    this.givePlayerPoints();
   }
   
   checkForWinner() {
@@ -75,5 +82,12 @@ class Game {
     }
   }
 
+  givePlayerPoints() {
+    if (this.winner === this.player1.token) {
+      this.player1.wins += 1;
+    } else {
+      this.player2.wins += 1;
+    }
+  }
 
 }
