@@ -4,46 +4,46 @@ class Game {
     this.player1 = new Player(playerToken1);
     this.player2 = new Player(playerToken2);
     this.playerTurn = this.player1.token;
+    this.starterPlayer = this.playerTurn;
     this.winner = '';
   }
 
   createBoard() {
-    const board = []; // reset board after a time with setTimeout()
+    const board = [];
     
     for (let i = 0; i < 9; i++) {
       board.push('');
     }
 
-    return board
+    return board;
   }
+
 
   addTokenToBoard(index) {
     if (this.board[index] === '') {
       this.board[index] = this.playerTurn;
-      
-      this.switchPlayerTurn(); 
-
+      this.switchPlayerTurn(this.playerTurn); 
       this.checkForWinner();
-
     } 
   }
 
-  switchPlayerTurn() {
-    if (this.playerTurn === this.player1.token) {
+  switchPlayerTurn(playerToken) {
+    if (playerToken === this.player1.token) {
       this.playerTurn = this.player2.token;
+
     } else {
       this.playerTurn = this.player1.token;
     } 
+
+    return this.playerTurn;
   } 
 
   updateWinner(index) {
     this.winner = this.board[index];
-
     this.givePlayerPoints();
   }
   
   checkForWinner() {
-
     if (this.detectThreeMatches(0, 1, 2)) {
       this.updateWinner(0);
 
@@ -67,9 +67,7 @@ class Game {
      
     } else if (this.detectThreeMatches(2, 4, 6)) {
       this.updateWinner(2);
-    
     }
-
   }
 
   detectThreeMatches(boxIndex1, boxIndex2, boxIndex3) { 
@@ -84,10 +82,17 @@ class Game {
 
   givePlayerPoints() {
     if (this.winner === this.player1.token) {
-      this.player1.wins += 1;
+      this.player1.increaseWins();
+
     } else {
-      this.player2.wins += 1;
+      this.player2.increaseWins();
     }
+  }
+
+  resetGame() {
+    this.board = this.createBoard();
+    this.winner = '';
+    this.starterPlayer = this.switchPlayerTurn(this.starterPlayer); 
   }
 
 }
