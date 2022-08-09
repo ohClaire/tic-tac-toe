@@ -6,29 +6,31 @@ body {
   background-image: linear-gradient( #F5FFFA, #E6E6FA , #87CEFA);
   display: flex;
   font-family: 'Teko', sans-serif;
-  justify-content: center;
   min-height: -webkit-fill-available;
 }
 
 /* Player sections */
 .feedback {
+  align-items: center;
   display: flex;
   flex-direction: column;
   flex-shrink: 1;
   padding: 140px;
 }
 
+.player__token {
+  flex-shrink: 1;
+  height: 80px;
+  width: 80px;
+}
 .scoring {
   display: flex;
-  font-size: 60px;
+  flex-shrink: 1;
+  font-size: 50px;
   justify-content: center;
   margin-top: 4px;
 }
 
-.player__token {
-  height: 80px;
-  width: 80px;
-}
 
 /* Game section */
 .board {
