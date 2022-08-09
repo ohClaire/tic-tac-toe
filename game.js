@@ -6,6 +6,7 @@ class Game {
     this.playerTurn = this.player1.token;
     this.starterPlayer = this.playerTurn;
     this.winner = '';
+    this.winningMatch = [];
   }
 
   createBoard() {
@@ -46,27 +47,28 @@ class Game {
   checkForWinner() {
     if (this.detectThreeMatches(0, 1, 2)) {
       this.updateWinner(0);
-
+      this.winningMatch = [0, 1, 2];
     } else if (this.detectThreeMatches(3, 4, 5)) {
       this.updateWinner(3);
-
+      this.winningMatch = [3, 4, 5];
     } else if (this.detectThreeMatches(6, 7, 8)) {
       this.updateWinner(6);
-
+      this.winningMatch = [6, 7, 8];
     } else if (this.detectThreeMatches(0, 3, 6)) {
       this.updateWinner(0);
-
+      this.winningMatch = [0, 3, 6];
     } else if (this.detectThreeMatches(1, 4, 7)) {
       this.updateWinner(1);
-
+      this.winningMatch = [1, 4, 7];
     } else if (this.detectThreeMatches(2, 5, 8)) {
       this.updateWinner(2);
-     
+      this.winningMatch = [2, 5, 8];
     } else if (this.detectThreeMatches(0, 4, 8)) {
       this.updateWinner(0);
-     
+      this.winningMatch = [0, 4, 8];
     } else if (this.detectThreeMatches(2, 4, 6)) {
       this.updateWinner(2);
+      this.winningMatch = [2, 4, 6];
     }
   }
 
@@ -91,8 +93,9 @@ class Game {
 
   resetGame() {
     this.board = this.createBoard();
-    this.winner = '';
     this.starterPlayer = this.switchPlayerTurn(this.starterPlayer); 
+    this.winner = '';
+    this.winningMatch = [];
   }
 
 }
