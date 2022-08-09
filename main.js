@@ -1,5 +1,6 @@
 //query selectors here
 const boardBanner = document.querySelector('.board__banner');
+const boardGame = document.querySelector('.board__game')
 const gameBoxes = document.querySelectorAll('.board__game--box');
 const player1Score = document.querySelector('.player1__score');
 const player2Score = document.querySelector('.player2__score');
@@ -27,7 +28,7 @@ for (let i = 0; i < gameBoxes.length; i++) {
         setTimeout(function() {
           currentGame.resetGame();
           renderChanges();
-        }, 3000);
+        }, 2000);
       }    
     }  
   });
@@ -63,6 +64,8 @@ function renderScore() {
 function renderGame() {
   for (let i = 0; i < gameBoxes.length; i++) {
     gameBoxes[i].innerHTML = getTokenImage(currentGame.board[i]);
+    gameBoxes[i].setAttribute('title', currentGame.board[i]);
+    renderWinningMatch(gameBoxes[i], i)
   }
 }
 
@@ -73,5 +76,12 @@ function renderChanges() {
 }
 
 
+function renderWinningMatch(box, index) {
+  if (currentGame.winningMatch.includes(index)) {
+    box.classList.add('highlight');
+  } else {
+    box.classList.remove('highlight');
+  }
+}
 
 

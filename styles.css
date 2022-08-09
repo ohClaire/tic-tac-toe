@@ -70,6 +70,10 @@ body {
   width: 160px;
 }
 
+.highlight {
+  background-color: #FFFF33;
+}
+
 .box__top--border {
   border-top: 0px;
 }
@@ -85,3 +89,4 @@ body {
 .box__right--border {
   border-right: 0px;
 }
+
