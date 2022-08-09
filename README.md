@@ -51,7 +51,7 @@ Extension: The players can reset the game by refreshing the page and not worry a
 
 ## Sources
   - [MDN](https://developer.mozilla.org/en-US/docs/Web/Accessibility/Understanding_WCAG/Keyboard)
-  - [W3Schools](https://www.w3schools.com/)
+  - [W3Schools](https://www.w3schools.com/html/html5_semantic_elements.asp)
   - [CSS-TRICKS](https://css-tricks.com/)
   - [Stackoverflow](https://stackoverflow.com/questions/29755233/trouble-with-settimeout-with-addeventlistener)
   - [BEM](http://getbem.com/)
