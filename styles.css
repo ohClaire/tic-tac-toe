@@ -15,12 +15,12 @@ body {
   display: flex;
   flex-direction: column;
   flex-shrink: 1;
-  padding: 90px;
+  padding: 140px;
 }
 
 .scoring {
   display: flex;
-  font-size: 40px;
+  font-size: 60px;
   justify-content: center;
   margin-top: 4px;
 }
@@ -28,11 +28,6 @@ body {
 .player__token {
   height: 80px;
   width: 80px;
-}
-
-.player__token--smaller {
-  height: 60px;
-  width: 60px;
 }
 
 /* Game section */
@@ -48,14 +43,13 @@ body {
 
 .board__title {
   display: flex;
-  font-size: 55px;
+  font-size: 80px;
 }
 
 .board__game {
   align-items: center;
   display: flex;
   justify-content: center;
-  cursor: alias;
 }
 
 /* Styling for the tic-tac-toe boxes */
@@ -63,11 +57,11 @@ body {
   align-items: center;
   background-color: white;
   border: 4px solid #43BFC7;
-  color: white;
+  cursor: crosshair;
   display: flex;
-  height: 160px;
+  height: 200px;
   justify-content: center;
-  width: 160px;
+  width: 200px;
 }
 
 .highlight {
