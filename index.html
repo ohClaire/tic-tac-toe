@@ -11,40 +11,39 @@
 </head>
 
 <body>
-  <article class="player1 feedback">
-    <img class="player__1 player__token" src="./assets/icons8-bubble-tea-80.png" alt="Bubble tea token">
-    <h2 class="player1__score scoring">0 wins</h2>
+  <article class="player">
+    <img class="player__token" src="./assets/icons8-bubble-tea-80.png" alt="Bubble tea token">
+    <h2 class="player1__score player__scoring">0 wins</h2>
   </article>
 
   <article class="board">
-    <header class="board__banner">
+    <header id="board__banner">
     </header>
   
     <main class="board__game">
       <div class="divider"> 
-        <button type="button" title="empty box" class="board__game--box box__top--border box__left--border"></button>
-        <button type="button" title="empty box" class="board__game--box box__left--border"></button>
-        <button type="button" title="empty box" class="board__game--box box__bottom--border box__left--border"></button>
+        <button type="button" title="empty box" class="board__game--box box--top-border box--left-border"></button>
+        <button type="button" title="empty box" class="board__game--box box--left-border"></button>
+        <button type="button" title="empty box" class="board__game--box box--bottom-border box--left-border"></button>
       </div>
       <div class="divider">
-        <button type="button" title="empty box" class="board__game--box box__top--border"></button>
+        <button type="button" title="empty box" class="board__game--box box--top-border"></button>
         <button type="button" title="empty box" class="board__game--box"></button>
-        <button type="button" title="empty box" class="board__game--box box__bottom--border"></button>
+        <button type="button" title="empty box" class="board__game--box box--bottom-border"></button>
       </div>
       <div class="divider">
-        <button type="button" title="empty box" class="board__game--box box__top--border box__right--border"></button>
-        <button type="button" title="empty box" class="board__game--box box__right--border"></button>
-        <button type="button" title="empty box" class="board__game--box box__bottom--border box__right--border"></button>
+        <button type="button" title="empty box" class="board__game--box box--top-border box--right-border"></button>
+        <button type="button" title="empty box" class="board__game--box box--right-border"></button>
+        <button type="button" title="empty box" class="board__game--box box--bottom-border box--right-border"></button>
       </div>
     </main>
   </article>
 
-  <article class="player2 feedback">
-    <img class="player__2 player__token" src="./assets/icons8-coffee-to-go-80.png" alt="Coffee token">
-    <h2 class="player2__score scoring">0 wins</h2>
+  <article class="player">
+    <img class="player__token" src="./assets/icons8-coffee-to-go-80.png" alt="Coffee token">
+    <h2 class="player2__score player__scoring">0 wins</h2>
   </article>
 
- 
   <script type="text/javascript" src="player.js"></script>
   <script type="text/javascript" src="game.js"></script>
   <script type="text/javascript" src="main.js"></script>
