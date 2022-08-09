@@ -9,30 +9,7 @@ body {
   min-height: -webkit-fill-available;
 }
 
-/* Player sections */
-.feedback {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  flex-shrink: 1;
-  padding: 140px;
-}
-
-.player__token {
-  flex-shrink: 1;
-  height: 80px;
-  width: 80px;
-}
-.scoring {
-  display: flex;
-  flex-shrink: 1;
-  font-size: 50px;
-  justify-content: center;
-  margin-top: 4px;
-}
-
-
-/* Game section */
+/* Center Board Styling */
 .board {
   align-items: center;
   background-color: white;
@@ -54,7 +31,7 @@ body {
   justify-content: center;
 }
 
-/* Styling for the tic-tac-toe boxes */
+/* Game Box Styling */
 .board__game--box {
   align-items: center;
   background-color: white;
@@ -66,23 +43,42 @@ body {
   width: 200px;
 }
 
-.highlight {
-  background-color: #FFFF33;
-}
-
-.box__top--border {
-  border-top: 0px;
-}
-
-.box__bottom--border {
+.box--bottom-border {
   border-bottom: 0px;
 }
 
-.box__left--border {
+.box--left-border {
   border-left: 0px;
 }
 
-.box__right--border {
+.box--right-border {
   border-right: 0px;
 }
 
+.box--top-border {
+  border-top: 0px;
+}
+
+.box--highlight {
+  background-color: #FFFF33;
+}
+
+/* Player Data */
+.player {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 1;
+  padding: 140px;
+}
+
+.player__token {
+  flex-shrink: 1;
+  height: 80px;
+  width: 80px;
+}
+
+.player__scoring {
+  font-size: 50px;
+  margin-top: 4px;
+}
