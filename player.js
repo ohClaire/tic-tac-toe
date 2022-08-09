@@ -16,7 +16,6 @@ class Player {
   storePoints() {
     const stringifiedPlayerPoints = JSON.stringify(this.wins);
     const stringifyId = JSON.stringify(this.id)
-
     localStorage.setItem(stringifyId, stringifiedPlayerPoints);
   }
 
