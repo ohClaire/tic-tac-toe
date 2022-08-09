@@ -6,8 +6,8 @@ const player1Score = document.querySelector('.player1__score');
 const player2Score = document.querySelector('.player2__score');
 
 //global variables here
-const bubbleTeaToken = `<img class="player__1 player__token--smaller" src="./assets/icons8-bubble-tea-80.png" alt="Bubble tea token">`;
-const coffeeCupToken = `<img class="player__2 player__token--smaller" src="./assets/icons8-coffee-to-go-80.png" alt="Coffee token">`;
+const bubbleTeaToken = `<img class="player__1 player__token" src="./assets/icons8-bubble-tea-80.png" alt="Bubble tea token">`;
+const coffeeCupToken = `<img class="player__2 player__token" src="./assets/icons8-coffee-to-go-80.png" alt="Coffee token">`;
 const currentGame = new Game('Bubble Tea', 'Take Out Coffee');
 const player1 = currentGame.player1;
 const player2 = currentGame.player2;
@@ -74,7 +74,6 @@ function renderChanges() {
   renderGame();
   renderScore();
 }
-
 
 function renderWinningMatch(box, index) {
   if (currentGame.winningMatch.includes(index)) {
