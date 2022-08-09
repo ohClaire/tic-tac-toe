@@ -12,8 +12,7 @@ const player1 = currentGame.player1;
 const player2 = currentGame.player2;
 
 //event listeners here
-window.addEventListener('load', renderCenterBanner);
-
+window.addEventListener('load', renderChanges);
 
 for (let i = 0; i < gameBoxes.length; i++) {
   const gameBox = gameBoxes[i];
@@ -21,6 +20,8 @@ for (let i = 0; i < gameBoxes.length; i++) {
   gameBox.addEventListener('click', function() {
     if (currentGame.winner === '' && currentGame.board.includes('')) { 
       currentGame.addTokenToBoard(i); 
+
+
       renderChanges();
       renderGameReset();  
     }  
@@ -84,5 +85,3 @@ function renderWinningMatch(box, index) {
     box.classList.remove('highlight');
   }
 }
-
-
