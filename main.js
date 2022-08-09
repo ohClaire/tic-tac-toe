@@ -1,6 +1,5 @@
 //query selectors here
 const boardBanner = document.querySelector('.board__banner');
-const boardGame = document.querySelector('.board__game')
 const gameBoxes = document.querySelectorAll('.board__game--box');
 const player1Score = document.querySelector('.player1__score');
 const player2Score = document.querySelector('.player2__score');
@@ -13,8 +12,7 @@ const player1 = currentGame.player1;
 const player2 = currentGame.player2;
 
 //event listeners here
-window.addEventListener('load', renderCenterBanner);
-
+window.addEventListener('load', renderChanges);
 
 for (let i = 0; i < gameBoxes.length; i++) {
   const gameBox = gameBoxes[i];
@@ -22,14 +20,10 @@ for (let i = 0; i < gameBoxes.length; i++) {
   gameBox.addEventListener('click', function() {
     if (currentGame.winner === '' && currentGame.board.includes('')) { 
       currentGame.addTokenToBoard(i); 
-      renderChanges();
 
-      if (currentGame.winner || !currentGame.board.includes('')) {
-        setTimeout(function() {
-          currentGame.resetGame();
-          renderChanges();
-        }, 2000);
-      }    
+
+      renderChanges();
+      renderGameReset();  
     }  
   });
 }
@@ -75,6 +69,15 @@ function renderChanges() {
   renderScore();
 }
 
+function renderGameReset() {
+  if (currentGame.winner || !currentGame.board.includes('')) {
+    setTimeout(function() {
+      currentGame.resetGame();
+      renderChanges();
+    }, 2000);
+  }
+}
+
 function renderWinningMatch(box, index) {
   if (currentGame.winningMatch.includes(index)) {
     box.classList.add('highlight');
@@ -82,5 +85,3 @@ function renderWinningMatch(box, index) {
     box.classList.remove('highlight');
   }
 }
-
-
