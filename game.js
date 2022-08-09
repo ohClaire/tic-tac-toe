@@ -31,7 +31,6 @@ class Game {
   switchPlayerTurn(playerToken) {
     if (playerToken === this.player1.token) {
       this.playerTurn = this.player2.token;
-
     } else {
       this.playerTurn = this.player1.token;
     } 
@@ -39,36 +38,36 @@ class Game {
     return this.playerTurn;
   } 
 
-  updateWinner(index) {
-    this.winner = this.board[index];
+  updateWinner(index1, index2, index3) {
+    this.winner = this.board[index1];
+    this.winningMatch.push(index1, index2, index3);
     this.givePlayerPoints();
   }
   
   checkForWinner() {
     if (this.detectThreeMatches(0, 1, 2)) {
-      this.updateWinner(0);
-      this.winningMatch = [0, 1, 2];
+      this.updateWinner(0, 1, 2);
+  
     } else if (this.detectThreeMatches(3, 4, 5)) {
-      this.updateWinner(3);
-      this.winningMatch = [3, 4, 5];
+      this.updateWinner(3, 4, 5);
+    
     } else if (this.detectThreeMatches(6, 7, 8)) {
-      this.updateWinner(6);
-      this.winningMatch = [6, 7, 8];
+      this.updateWinner(6, 7, 8);
+ ;
     } else if (this.detectThreeMatches(0, 3, 6)) {
-      this.updateWinner(0);
-      this.winningMatch = [0, 3, 6];
+      this.updateWinner(0, 3, 6);
+
     } else if (this.detectThreeMatches(1, 4, 7)) {
-      this.updateWinner(1);
-      this.winningMatch = [1, 4, 7];
+      this.updateWinner(1, 4, 7);
+
     } else if (this.detectThreeMatches(2, 5, 8)) {
-      this.updateWinner(2);
-      this.winningMatch = [2, 5, 8];
+      this.updateWinner(2, 5, 8);
+
     } else if (this.detectThreeMatches(0, 4, 8)) {
-      this.updateWinner(0);
-      this.winningMatch = [0, 4, 8];
+      this.updateWinner(0, 4, 8);
+ 
     } else if (this.detectThreeMatches(2, 4, 6)) {
-      this.updateWinner(2);
-      this.winningMatch = [2, 4, 6];
+      this.updateWinner(2, 4, 6);
     }
   }
 
