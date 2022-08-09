@@ -47,25 +47,18 @@ class Game {
   checkForWinner() {
     if (this.detectThreeMatches(0, 1, 2)) {
       this.updateWinner(0, 1, 2);
-  
     } else if (this.detectThreeMatches(3, 4, 5)) {
       this.updateWinner(3, 4, 5);
-    
     } else if (this.detectThreeMatches(6, 7, 8)) {
       this.updateWinner(6, 7, 8);
- ;
     } else if (this.detectThreeMatches(0, 3, 6)) {
       this.updateWinner(0, 3, 6);
-
     } else if (this.detectThreeMatches(1, 4, 7)) {
       this.updateWinner(1, 4, 7);
-
     } else if (this.detectThreeMatches(2, 5, 8)) {
       this.updateWinner(2, 5, 8);
-
     } else if (this.detectThreeMatches(0, 4, 8)) {
       this.updateWinner(0, 4, 8);
- 
     } else if (this.detectThreeMatches(2, 4, 6)) {
       this.updateWinner(2, 4, 6);
     }
@@ -84,7 +77,6 @@ class Game {
   givePlayerPoints() {
     if (this.winner === this.player1.token) {
       this.player1.increaseWins();
-
     } else {
       this.player2.increaseWins();
     }
