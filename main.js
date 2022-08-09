@@ -1,6 +1,5 @@
 //query selectors here
 const boardBanner = document.querySelector('.board__banner');
-const boardGame = document.querySelector('.board__game')
 const gameBoxes = document.querySelectorAll('.board__game--box');
 const player1Score = document.querySelector('.player1__score');
 const player2Score = document.querySelector('.player2__score');
@@ -23,13 +22,7 @@ for (let i = 0; i < gameBoxes.length; i++) {
     if (currentGame.winner === '' && currentGame.board.includes('')) { 
       currentGame.addTokenToBoard(i); 
       renderChanges();
-
-      if (currentGame.winner || !currentGame.board.includes('')) {
-        setTimeout(function() {
-          currentGame.resetGame();
-          renderChanges();
-        }, 2000);
-      }    
+      renderGameReset();  
     }  
   });
 }
@@ -73,6 +66,15 @@ function renderChanges() {
   renderCenterBanner();
   renderGame();
   renderScore();
+}
+
+function renderGameReset() {
+  if (currentGame.winner || !currentGame.board.includes('')) {
+    setTimeout(function() {
+      currentGame.resetGame();
+      renderChanges();
+    }, 2000);
+  }
 }
 
 function renderWinningMatch(box, index) {
