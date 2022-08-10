@@ -6,7 +6,6 @@ body {
   background-image: linear-gradient( #F5FFFA, #E6E6FA , #87CEFA);
   display: flex;
   font-family: 'Teko', sans-serif;
-  /* min-height: -webkit-fill-available; */
   height: 100%;
   margin: 0px;
 }
@@ -18,9 +17,7 @@ body {
   display: flex;
   flex-direction: column;
   flex-grow: 1;
-  /* gap: 40px; */
   justify-content: center;
-
 }
 
 .board__title {
