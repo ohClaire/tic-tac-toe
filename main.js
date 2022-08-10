@@ -22,6 +22,7 @@ for (let i = 0; i < gameBoxes.length; i++) {
       renderGameReset();  
     }  
   });
+
 }
 
 function getTokenImage(playerToken) {  
@@ -74,9 +75,9 @@ function renderGameReset() {
 
 function renderWinningMatch(box, index) {
   if (currentGame.winningMatch.includes(index)) {
-    box.classList.add('button--highlight');
+    box.classList.add('box--highlight');
   } else {
-    box.classList.remove('button--highlight');
+    box.classList.remove('box--highlight');
   }
 }
 
