@@ -18,7 +18,7 @@ This tic-tac-toe game can be played by two human players. Each player has an ass
 
 This project was assigned as a part of Turing School of Software and Design's Front-End program, students had one week to complete it.
 
-# Deployed Page
+## Deployed Page
 
 Visit my site [here](https://ohclaire.github.io/tic-tac-toe/)!
 
