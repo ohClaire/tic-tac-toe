@@ -89,3 +89,10 @@ body {
   font-size: 40px;
   margin-top: 4px;
 }
+
+@media screen and (max-width: 800px) {
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+}
