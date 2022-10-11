@@ -12,6 +12,7 @@
   - [Sources](#sources)
   - [Contributors](#contributors)
   - [Project Specs](#project-specs)
+  - [Credits](#credits)
 
 ## Introduction
 This tic-tac-toe game can be played by two human players. Each player has an assigned token, which they will take turns placing inside a box until there is a winning match or a draw. A player can win by connecting 3 tokens horizontally, vertically, or diagonally. The winner will be given points and the game will reset.
@@ -66,3 +67,6 @@ Extension: The players can reset the game by refreshing the page and not worry a
 
 ## Project Specs
   - The project spec & rubric can be found [here.](https://frontend.turing.edu/projects/module-1/tic-tac-toe-solo-v2.html)
+  
+## Credits
+[Icons8](https://icons8.com/) for letting me use their icons for free!
